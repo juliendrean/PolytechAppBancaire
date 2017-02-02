@@ -21,6 +21,32 @@ public class CtrlAjoutCarte implements ActionListener
 	}
 
 	public void actionPerformed(ActionEvent arg0)
+	{	boolean dateIsOK=false;
+		boolean numIsOK=false;
+
+		dateIsOK =checkDate();
+		numIsOK = checkNumCarte();
+
+		if(!dateIsOK)
+		{
+			javax.swing.JOptionPane.showMessageDialog(null,"Date non valide");
+		}
+
+		if(!numIsOK)
+		{
+			javax.swing.JOptionPane.showMessageDialog(null,"Numéro de carte non valide");
+		}
+
+		if (dateIsOK && numIsOK)
+		{
+			cli.ajoutCarte(Fen.getDateExpiration(), Fen.getIndexCombo()+1,Fen.getNumCarte());
+			Fen.dispose();
+			Fenlist.setListCarte(cli.getlescartesclient());
+		}
+
+	}
+
+	private boolean checkDate()
 	{
 		boolean test = true;
 		char[] c = Fen.getDateExpiration().toCharArray();
@@ -31,26 +57,42 @@ public class CtrlAjoutCarte implements ActionListener
 				if(c [i] != '/')
 				{
 					test = false;
-
 				}
-
 			}
 
 		}
-		if(c.length > 8)
+		if(c.length ==4)
+		{
+			c[4]=c[3];
+			c[3]=c[2];
+			c[2]='/';
+		}
+		if(c.length != 5)
 		{
 			test = false ;
 		}
-		if(test)
+		return test;
+
+	}
+
+	private boolean checkNumCarte()
+	{
+		boolean test = true;
+		char[] c = Fen.getNumCarte().toCharArray();
+		for(int i = 0; i < c.length; i++)
 		{
-			cli.ajoutCompte(Fen.getDateExpiration(), Fen.getIndexCombo()+1);
-			Fen.dispose();
-			Fenlist.setListCarte(cli.getlescomptesclient());
+			if(c[i] < '0' || c[i] > '9')
+			{
+					test = false;
+			}
+
 		}
-		else
+		if(c.length != 16)
 		{
-			javax.swing.JOptionPane.showMessageDialog(null,"Date non valide");
+			test = false ;
 		}
+
+		return test;
 	}
 
 }

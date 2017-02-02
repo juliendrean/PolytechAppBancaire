@@ -29,7 +29,7 @@ public class CtrlFenAjoutCarte implements ActionListener
 	{
 		FenAjoutCarte fen = new FenAjoutCarte();
 		fen.setControleur(new CtrlAjoutCarte(cli, fen, Fen));
-		fen.setCombo(cli.getTypeComptes());
+		fen.setCombo(cli.getTypeCartes());
 		fen.setVisible(true);
 	}
 }

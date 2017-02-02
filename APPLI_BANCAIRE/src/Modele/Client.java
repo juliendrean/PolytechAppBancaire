@@ -107,7 +107,7 @@ public class Client
 
 			while (resSect.next())
 			{
-				String uneCarte = "Num : "+resSect.getString("numCarte")+" "+ "Type : "+this.getUnTypeCarte(resSect.getString("typCompte"))+  "   Date d'expiration : " + resSect.getFloat("dateExpiration");
+				String uneCarte = "Num : "+resSect.getString("numCarte")+" "+ "Type : "+this.getUnTypeCarte(resSect.getString("typCarte"))+  "   Date d'expiration : " + resSect.getString("dateExpi");
 				carte.add(uneCarte);
 			}
 			resSect.close();
@@ -190,7 +190,7 @@ public class Client
 			e.printStackTrace();
 		}
 	}
-	public void ajoutCarte(String dateExpiration , int typeCarte)
+	public void ajoutCarte(String dateExpiration , int typeCarte, String numCarte)
 	{
 		System.out.println("type de carte : "+ typeCarte);
 		try
@@ -198,18 +198,8 @@ public class Client
 			String insert;
 			getconnection();
 			Statement stmt = conn.createStatement();
-
-			int nbCartes = this.countCartes();
-			int numcarte;
-			if(nbCartes == 0)
-			{
-				 numcarte = 1000001;
-			}
-			else
-			{
-				numcarte = nbCartes+1;
-			}
-			insert = new String("CALL insertCarte("+numcarte+", "+
+	
+			insert = new String("CALL insertCarte("+numCarte+", "+
 					             this.codeClient+", "+typeCarte+", "+dateExpiration+")");
 			System.out.println(insert);
 			stmt.execute(insert);
@@ -297,7 +287,7 @@ public class Client
 		{
 			getconnection();
 			Statement stmt = conn.createStatement();
-			ResultSet resSect = stmt.executeQuery("CALL getUnTypeCarte("+ type+")");
+			ResultSet resSect = stmt.executeQuery("CALL getUnTypeCartes("+ type+")");
 
 			while (resSect.next())
 			{
