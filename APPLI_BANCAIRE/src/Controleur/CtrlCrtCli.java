@@ -29,7 +29,7 @@ public class CtrlCrtCli implements ActionListener
 		FenListCarte fen = new FenListCarte();
 		fen.setLabelNomcli(Pan.getclient());
 		fen.setListCarte(cli.getlescartesclient());
-		fen.setControleurs(new CtrlGestCarte(cli, fen), new CtrlFenAjoutCarte(fen, cli), new CtrlSupprimeCarte(fen, cli));
+		fen.setControleurs( new CtrlFenAjoutCarte(fen, cli), new CtrlSupprimeCarte(fen, cli));
 		fen.setVisible(true);
 	}
 

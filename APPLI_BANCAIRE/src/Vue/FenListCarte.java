@@ -12,7 +12,6 @@ import java.util.Vector;
 import javax.swing.JButton;
 
 import Controleur.CtrlFenAjoutCarte;
-import Controleur.CtrlGestCarte;
 import Controleur.CtrlSupprimeCarte;
 
 public class FenListCarte extends JFrame {
@@ -60,7 +59,6 @@ public class FenListCarte extends JFrame {
 			jContentPane.setLayout(null);
 			jContentPane.add(jLabelNomClt, null);
 			jContentPane.add(getListCartes(), null);
-			jContentPane.add(getJButtonGestCarte(), null);
 			jContentPane.add(getJButtonAjouteCarte(), null);
 			jContentPane.add(getJButtonAjouteCarte1(), null);
 		}
@@ -80,20 +78,7 @@ public class FenListCarte extends JFrame {
 		return listCartes;
 	}
 
-	/**
-	 * This method initializes jButtonGestCarte
-	 *
-	 * @return javax.swing.JButton
-	 */
-	private JButton getJButtonGestCarte() {
-		if (jButtonGestCarte == null) {
-			jButtonGestCarte = new JButton();
-			jButtonGestCarte.setText("Gérer carte");
-			jButtonGestCarte.setSize(new Dimension(160, 27));
-			jButtonGestCarte.setLocation(new Point(435, 110));
-		}
-		return jButtonGestCarte;
-	}
+
 
 	/**
 	 * This method initializes jButtonAjouteCarte
@@ -126,9 +111,8 @@ public class FenListCarte extends JFrame {
 	{
 		jLabelNomClt.setText(nom);
 	}
-	public void setControleurs(CtrlGestCarte gest, CtrlFenAjoutCarte ajout, CtrlSupprimeCarte supp)
+	public void setControleurs( CtrlFenAjoutCarte ajout, CtrlSupprimeCarte supp)
 	{
-		jButtonGestCarte.addActionListener(gest);
 		jButtonAjouteCarte.addActionListener(ajout);
 		jButtonSupprimerCarte.addActionListener(supp);
 	}
