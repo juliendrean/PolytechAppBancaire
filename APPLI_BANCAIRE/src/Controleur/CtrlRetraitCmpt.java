@@ -10,7 +10,7 @@ import Vue.FenListCmpt;
 
 /**
  * 
- * @author Guillaume
+ * @author DREAN BERTIN
  * Controleur qui permet de retirer de l'argent pour un compte
  */
 public class CtrlRetraitCmpt implements ActionListener

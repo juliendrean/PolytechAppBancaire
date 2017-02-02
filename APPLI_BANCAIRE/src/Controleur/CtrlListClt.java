@@ -7,7 +7,7 @@ import Modele.Model;
 import Vue.PanelAgence;
 
 /**
- * @author Guillaume
+ * @author DREAN BERTIN
  * Controleur qui permet de lister les client pour une Agence
  */
 public class CtrlListClt implements ActionListener

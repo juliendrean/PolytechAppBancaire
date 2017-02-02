@@ -8,7 +8,7 @@ import Vue.FenAjoutCmpt;
 import Vue.FenListCmpt;
 /**
  * 
- * @author Guillaume
+ * @author DREAN BERTIN
  * Controleur qui permet d'ouvrir la fenetre permettant d'ajouter un compte pour un client
  */
 public class CtrlFenAjoutCompte implements ActionListener

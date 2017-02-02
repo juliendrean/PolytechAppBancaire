@@ -8,7 +8,7 @@ import Vue.PanelEmploye;
 
 /**
  * 
- * @author Guillaume
+ * @author DREAN BERTIN
  * Controleur qui permet de lister les Employés pour une Agence
  */
 public class CtrlListEmp implements ActionListener 

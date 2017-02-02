@@ -10,7 +10,7 @@ import Vue.FenListCmpt;
 
 /**
  * 
- * @author Guillaume
+ * @author DREAN BERTIN
  * Controleur qui permet de déposer de l'argent pour un compte
  */
 public class CtrlDepotCmpt implements ActionListener

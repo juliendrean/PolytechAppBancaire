@@ -8,7 +8,7 @@ import Modele.Carte;
 import Vue.FenListCarte;
 
 
-//+ Classe qui permet de supprimer un compte client
+//+ Classe qui permet de supprimer une carte client
 public class CtrlSupprimeCarte implements ActionListener
 {
 	private Client Cli;
@@ -22,7 +22,7 @@ public class CtrlSupprimeCarte implements ActionListener
 	{
 		Carte cart = Cli.getCarte(Fen.getCarte());
 		cart.SupprimerCarte();
-		Fen.setListCarte(Cli.getlescomptesclient());
+		Fen.setListCarte(Cli.getlescartesclient());
 	}
 
 }

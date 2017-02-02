@@ -38,8 +38,9 @@ public class CtrlAjoutCarte implements ActionListener
 		}
 
 		if (dateIsOK && numIsOK)
-		{
-			cli.ajoutCarte(Fen.getDateExpiration(), Fen.getIndexCombo()+1,Fen.getNumCarte());
+		{	
+			cli.ajoutCarte(Fen.getDateExpiration(), Fen.getIndexCombo()+1,chiffreNumCarte(Fen.getNumCarte().toCharArray()));
+			//cli.ajoutCarte(Fen.getDateExpiration(), Fen.getIndexCombo()+1,Fen.getNumCarte());
 			Fen.dispose();
 			Fenlist.setListCarte(cli.getlescartesclient());
 		}
@@ -93,6 +94,19 @@ public class CtrlAjoutCarte implements ActionListener
 		}
 
 		return test;
+	}
+	private String chiffreNumCarte(char[] numCarte)
+	{int i;
+	String result="";
+		for(i=0;i<12;i++)
+		{
+			numCarte[i]='x';
+		}
+		for (i=0;i<numCarte.length;i++)
+		{
+			result=result+numCarte[i];
+		}
+	return result;
 	}
 
 }

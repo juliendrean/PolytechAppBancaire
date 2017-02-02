@@ -199,8 +199,8 @@ public class Client
 			getconnection();
 			Statement stmt = conn.createStatement();
 	
-			insert = new String("CALL insertCarte("+numCarte+", "+
-					             this.codeClient+", "+typeCarte+", "+dateExpiration+")");
+			insert = new String("CALL insertCarte(\""+numCarte+"\", "+
+					             this.codeClient+", "+typeCarte+", \""+dateExpiration+"\")");
 			System.out.println(insert);
 			stmt.execute(insert);
 		}
@@ -341,10 +341,10 @@ public class Client
 		{
 			getconnection();
 			Statement stmt = conn.createStatement();
-			ResultSet resSect = stmt.executeQuery("CALL getUneCarteClient("+this.codeClient+", "+num+")");
+			ResultSet resSect = stmt.executeQuery("CALL getUneCarteClient("+this.codeClient+", \""+num+"\")");
 			while (resSect.next())
 			{
-				crt = new Carte(resSect.getInt("codeCli"), resSect.getString(""), resSect.getString(""), resSect.getString(""));
+				crt = new Carte(resSect.getInt("codeCli"), resSect.getString("numCarte"), resSect.getString("dateExpi"), resSect.getString("typCarte"));
 			}
 			resSect.close();
 		}

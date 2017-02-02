@@ -12,7 +12,7 @@ import Vue.PanelAgence;
 
 /**
  *
- * @author Guillaume
+ * @author DREAN BERTIN
  * Controleur qui permet d'ouvrir une fenêtre permettant d'ajouter une nouvelle carte
  *
  */

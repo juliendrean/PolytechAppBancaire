@@ -48,7 +48,8 @@ public class Carte
 		{
 			getconnection();
 			Statement stmt = conn.createStatement();
-			update = new String("CALL supprimeUneCarte"+"("+codeClient +", "+numCarte +","+dateExpiration+")");
+			update = new String("CALL supprimeUneCarte"+"("+codeClient +", \""+numCarte +"\")");
+			System.out.println(update);
 			stmt.execute(update);
 			conn.close();
 		}

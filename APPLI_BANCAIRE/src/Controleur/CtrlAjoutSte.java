@@ -7,7 +7,7 @@ import Modele.Model;
 import Vue.FenAjoutSociete;
 /**
  * 
- * @author Guillaume
+ * @author DREAN BERTIN
  * Controleur qui ajoute une Societe comme client
  */
 public class CtrlAjoutSte implements ActionListener

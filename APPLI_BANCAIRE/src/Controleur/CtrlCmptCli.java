@@ -9,7 +9,7 @@ import Vue.FenListCmpt;
 import Vue.PanelAgence;
 
 /**
- * @author Guillaume
+ * @author DREAN BERTIN
  * Controleur qui affiche une fenêtre permettant de voir les comptes pour un client
  */
 public class CtrlCmptCli implements ActionListener

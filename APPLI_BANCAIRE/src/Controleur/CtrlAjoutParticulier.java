@@ -7,7 +7,7 @@ import Modele.Model;
 import Vue.FenAjoutParticulier;
 /**
  * 
- * @author Guillaume
+ * @author DREAN BERTIN
  * Controleur qui ajoute un client Particulier
  */
 public class CtrlAjoutParticulier implements ActionListener
