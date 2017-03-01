@@ -15,7 +15,7 @@ import Controleur.CtrlAjoutSte;
 
 public class FenAjoutSociete extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JPanel jPanel = null;
 	private JLabel jLabel = null;
 	private JLabel jLabel1 = null;

@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
-public class Agence 
+public class Agence
 {
-	private Connection conn = null; 
-   
-	
+	private Connection conn = null;
+
+
 	private int codeAgence;
 	private String adresseAgence;
 	private String CPAgence;
@@ -19,7 +19,7 @@ public class Agence
 	private int codeDirecteur;
 	private Vector lesEmploye;
 	private Vector lesClients;
-	
+
 	public Agence(int code, String ville, int codeDir)
 	{
 		this.codeAgence = code;
@@ -28,18 +28,18 @@ public class Agence
 		lesEmploye = new Vector();
 		this.villeAgence = ville;
 	}
-	
+
 	public void récupérerClients()
 	{
 		lesClients = new  Vector();
 		//on se connecte à la BD
-		try 
+		try
 		{
 			getconnection();
-					 
-			Statement stmt = conn.createStatement(); 
+
+			Statement stmt = conn.createStatement();
 			ResultSet resSect = stmt.executeQuery("CALL getLesClientsAgence("+ this.codeAgence+")");
-			
+
 			while (resSect.next())
 			{
 				Client cli;
@@ -48,13 +48,11 @@ public class Agence
 			}
 			resSect.close();
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-		}
+
 	}
 	public Vector getClients()
 	{
@@ -64,7 +62,7 @@ public class Agence
 	{
 		return this.codeAgence;
 	}
-	
+
 	public String getVille()
 	{
 		return this.villeAgence;
@@ -77,43 +75,43 @@ public class Agence
 	{
 		return this.CPAgence;
 	}
-	
+
 	public String getNomDirecteur()
 	{
 		String nom;
 		nom = new String();
-		try 
+		try
 		{
 			getconnection();
-			
-					 
-			Statement stmt = conn.createStatement(); 
+
+
+			Statement stmt = conn.createStatement();
 			ResultSet resSect = stmt.executeQuery("CALL getNomDirecteur("+ this.codeDirecteur+")");
-			
+
 			while (resSect.next())
 			{
 				nom = resSect.getString("nomEmploye");
-				
+
 			}
 			resSect.close();
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
 		return nom;
 	}
-	
+
 	public Vector getNomPnomClients()
 	{
 		Vector PnomNom = new Vector();
-		try 
+		try
 		{
 			getconnection();
-					 
-			Statement stmt = conn.createStatement(); 
+
+			Statement stmt = conn.createStatement();
 			ResultSet resSect = stmt.executeQuery("CALL getLesClientsAgence("+ this.codeAgence+")");
-			
+
 			while (resSect.next())
 			{
 				String nompn = resSect.getInt("codeClient") +" "+resSect.getString("nomClient")+" "+resSect.getString("PNomClient");
@@ -121,7 +119,7 @@ public class Agence
 			}
 			resSect.close();
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
@@ -132,19 +130,19 @@ public class Agence
 		}
 		return PnomNom;
 	}
-	
-	
+
+
 	public void récupérerEmploye()
 	{
 		lesEmploye = new  Vector();
 		//on se connecte à la BD
-		try 
+		try
 		{
-			getconnection();			
-					 
-			Statement stmt = conn.createStatement(); 
+			getconnection();
+
+			Statement stmt = conn.createStatement();
 			ResultSet resSect = stmt.executeQuery("CALL getLesEmployeAgence("+ this.codeAgence+")");
-			
+
 			while (resSect.next())
 			{
 				Employe emp;
@@ -153,24 +151,22 @@ public class Agence
 			}
 			resSect.close();
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-		}
+
 	}
-	
+
 	public Vector getNomPnomEmploye()
 	{
 		Vector PnomNom = new Vector();
-		try 
+		try
 		{
-			getconnection();				 
-			Statement stmt = conn.createStatement(); 
+			getconnection();
+			Statement stmt = conn.createStatement();
 			ResultSet resSect = stmt.executeQuery("CALL getLesEmployeAgence("+ this.codeAgence+")");
-			
+
 			while (resSect.next())
 			{
 				String nompn = resSect.getInt("codeEmploye") +" "+resSect.getString("nomEmploye")+" "+resSect.getString("PrenomEmploye");
@@ -178,53 +174,49 @@ public class Agence
 			}
 			resSect.close();
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
 		return PnomNom;
-	} 
-	
-	
+	}
+
+
 	public void ajoutClient(int code, String nom, String prenom, String adress, String CP, String ville)
 	{
-		try 
+		try
 		{
 			String insert;
 			getconnection();
-			Statement stmt = conn.createStatement(); 
+			Statement stmt = conn.createStatement();
 			insert = new String("CALL addClient("+
 						code+", '"+ nom+"', '"+prenom+"', '"+ adress+"', '"+
 						CP+ "', '"+ ville+"',"+ this.codeAgence+")");
 			System.out.println(insert);
 			stmt.execute(insert);
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-		}
+
 	}
 	public void ajoutParticulier(int code, String civilite)
 	{
-		try 
+		try
 		{
 			String insert;
 			getconnection();
-			Statement stmt = conn.createStatement(); 
+			Statement stmt = conn.createStatement();
 			insert = new String("CALL addClientParticulier("+code+", '"+civilite+"' )");
 			System.out.println(insert);
 			stmt.execute(insert);
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-		}
+
 	}
 	public void ajoutSociete(int code, String societe)
 	{
@@ -232,32 +224,30 @@ public class Agence
 		{
 			String insert;
 			getconnection();
-			Statement stmt = conn.createStatement(); 
+			Statement stmt = conn.createStatement();
 			insert = new String(" CALL addClientSociete("+
 						code+", '"+ societe+"')");
 			System.out.println(insert);
 			stmt.execute(insert);
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-		}
+
 	}
 	public void ajoutEmploye(int code, String nom, String prenom, String adress, String CP, String ville, int codeCategorie)
 	{
-		try 
+		try
 		{
-			  Class.forName("com.mysql.jdbc.Driver");		
-		} 
-		catch (Exception e) 
+			  Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e)
 	  	{
 			e.printStackTrace();
 			System.out.println("Ca a planté");
 		}
-		try 
+		try
 		{
 			if(codeCategorie == 5)
 			{
@@ -266,26 +256,24 @@ public class Agence
 			String insert;
 			String DBurl = "jdbc:mysql://127.0.0.1/banque?";
 			conn = DriverManager.getConnection(DBurl, "root", "");
-			Statement stmt = conn.createStatement(); 
+			Statement stmt = conn.createStatement();
 			insert = new String("CALL addEmploye("+
 						code+", '"+ nom+"', '"+prenom+"', '"+ adress+"', '"+
 						CP+ "', '"+ ville+"',"+ codeCategorie+", "+ this.codeAgence+")");
 			System.out.println(insert);
 			stmt.execute(insert);
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-		}
+
 	}
-	
+
 	public void modifierCategDirecteur(int codeAgence)
 	{
 		int codeDir = 0;
-		try 
+		try
 		{
 			getconnection();
 			Statement stmt = conn.createStatement();
@@ -298,18 +286,18 @@ public class Agence
 			stmt.execute("CALL ModifEmploye("+codeDir+", 1, "+codeAgence+ ")");
 			System.out.println("CALL ModifEmploye("+codeDir+", 1, "+codeAgence+ ")");
 		}
-		catch (SQLException e) 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
 	}
 	private void getconnection() throws SQLException
 	{
-		try 
+		try
 		{
-			  Class.forName("com.mysql.jdbc.Driver");		
-		} 
-		catch (Exception e) 
+			  Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e)
 	  	{
 			e.printStackTrace();
 			System.out.println("Ca a planté");
@@ -317,5 +305,5 @@ public class Agence
 		String DBurl = "jdbc:mysql://127.0.0.1/banque?";
 		conn = DriverManager.getConnection(DBurl, "root", "");
 	}
-	
+
 }

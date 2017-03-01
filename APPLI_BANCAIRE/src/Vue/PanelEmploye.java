@@ -20,7 +20,7 @@ import java.awt.Point;
 public class PanelEmploye extends JPanel 
 {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JButton jButtonVoirEmp = null;
 	private JLabel jLabel = null;
 	private JComboBox jComboBox = null;

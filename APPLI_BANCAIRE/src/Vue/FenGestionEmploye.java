@@ -16,7 +16,7 @@ import java.util.Vector;
 public class FenGestionEmploye extends JFrame 
 {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JPanel jContentPane = null;
 	private JLabel jLabelNomEmploye = null;
 	private JButton jButtonValider = null;

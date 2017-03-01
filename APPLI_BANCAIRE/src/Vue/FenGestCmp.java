@@ -14,7 +14,7 @@ import Controleur.CtrlRetraitCmpt;
 
 public class FenGestCmp extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JPanel jContentPane = null;
 	private JButton jButtonDepot = null;
 	private JButton jButtonRetrait = null;

@@ -22,7 +22,7 @@ import java.awt.Point;
 
 public class PanelAgence extends JPanel {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JButton jButtonGestCrt = null;
 	private JButton jButtonGestCmpt = null;
 	private JButton jButtonSupprimerCli = null;

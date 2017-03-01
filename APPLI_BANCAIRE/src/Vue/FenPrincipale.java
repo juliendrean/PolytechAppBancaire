@@ -12,7 +12,7 @@ import Controleur.CtrlQuitter;
 
 public class FenPrincipale extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JMenuBar jJMenuBar = null;
 	private JMenu jMenu = null;
 	private JMenuItem jMenuGestCli = null;

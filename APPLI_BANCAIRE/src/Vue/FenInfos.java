@@ -13,7 +13,7 @@ import java.awt.Point;
 
 public class FenInfos extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JPanel jContentPane = null;
 	private JLabel jLabelNom = null;
 	private JLabel jLabelPnom = null;

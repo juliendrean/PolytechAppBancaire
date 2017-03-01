@@ -4,11 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Modele.Client;
-import Modele.Model;
 import Vue.FenAjoutCarte;
-import Vue.FenAjoutParticulier;
 import Vue.FenListCarte;
-import Vue.PanelAgence;
+
 
 /**
  *

@@ -16,7 +16,7 @@ import Controleur.CtrlAjoutEmploye;
 
 public class FenAjoutEmpl extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JPanel jPanel = null;
 	private JButton jButtonEmployé = null;
 	private JLabel jLabel = null;

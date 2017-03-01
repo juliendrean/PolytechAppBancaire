@@ -16,7 +16,7 @@ import Controleur.CtrlSupprimeCarte;
 
 public class FenListCarte extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JPanel jContentPane = null;
 	private JLabel jLabelNomClt = null;
 	private List listCartes = null;

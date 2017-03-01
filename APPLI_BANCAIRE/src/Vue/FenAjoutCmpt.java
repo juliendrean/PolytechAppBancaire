@@ -16,7 +16,7 @@ import Controleur.CtrlAjoutCmpte;
 
 public class FenAjoutCmpt extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JPanel jContentPane = null;
 	private JComboBox jComboBox = null;
 	private JTextField jTextField = null;
